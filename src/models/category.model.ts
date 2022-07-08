@@ -1,19 +1,22 @@
 import {
-	Table,
 	Column,
-	Model,
 	PrimaryKey,
-	HasMany,
+	Table,
+	Unique,
+	Model,
+	ForeignKey,
 } from 'sequelize-typescript';
 import Product from './product.model';
 
-@Table
-class Category extends Model<Category> {
+@Table({ timestamps: false })
+class Category extends Model {
+	@PrimaryKey
+	@Unique
 	@Column
 	name!: string;
 
-	@HasMany(() => Product)
-	products?: Product[];
+	@ForeignKey(() => Product)
+	products?: Array<Product>;
 }
 
 export default Category;

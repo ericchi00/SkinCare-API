@@ -1,18 +1,24 @@
 import {
-	Table,
 	Column,
-	Model,
 	HasMany,
+	PrimaryKey,
+	Table,
+	Unique,
+	Model,
+	ForeignKey,
+	BelongsToMany,
 } from 'sequelize-typescript';
 import Product from './product.model';
 
-@Table
-class Brand extends Model<Brand> {
+@Table({ timestamps: false })
+class Brand extends Model {
+	@PrimaryKey
+	@Unique
 	@Column
 	name!: string;
 
-	@HasMany(() => Product)
-	products?: Product[];
+	@ForeignKey(() => Product)
+	products?: Array<Product>;
 }
 
 export default Brand;

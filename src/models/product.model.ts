@@ -1,33 +1,33 @@
 import {
-	Table,
 	Column,
+	Table,
+	Unique,
 	Model,
-	PrimaryKey,
-	BelongsTo,
-	HasMany,
+	HasOne,
 	ForeignKey,
+	HasMany,
 } from 'sequelize-typescript';
-import Category from './category.model';
 import Brand from './brand.model';
+import Category from './category.model';
+import Ingredient from './ingredients.model';
 
-@Table
-class Product extends Model<Product> {
+@Table({ timestamps: false })
+class Product extends Model {
+	@Unique
 	@Column
 	name!: string;
 
 	@ForeignKey(() => Brand)
-	@Column
-	brandID!: number;
-
-	@BelongsTo(() => Brand)
-	brand!: Brand;
+	@HasOne(() => Brand)
+	brand!: string;
 
 	@ForeignKey(() => Category)
-	@Column
-	categoryID!: number;
+	@HasOne(() => Category)
+	category!: string;
 
-	@BelongsTo(() => Category)
-	category!: Category;
+	@ForeignKey(() => Ingredient)
+	@HasMany(() => Ingredient)
+	ingredients!: Array<Ingredient>;
 }
 
 export default Product;
