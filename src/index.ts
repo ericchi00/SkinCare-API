@@ -5,6 +5,7 @@ import app from './app';
 const port = process.env.PORT || 8000;
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const sequelize = new Sequelize(process.env.DATABASE_URL!, {
 	dialectOptions: {
 		ssl: {
@@ -18,8 +19,9 @@ const sequelize = new Sequelize(process.env.DATABASE_URL!, {
 const main = async () => {
 	try {
 		await sequelize.authenticate();
+		// force drops the entire database if set to true
+		// await sequelize.sync({ force: true });
 		console.log('Database connected');
-		sequelize.close();
 	} catch (error) {
 		console.error('Unable to connect to database', error);
 	}
