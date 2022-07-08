@@ -3,7 +3,7 @@ import helmet from 'helmet';
 import compression from 'compression';
 import cors from 'cors';
 import logger from 'morgan';
-import apiRouter from './routes/api';
+import api from './routes/api';
 import { errorConverter, errorHandler } from './middleware/error';
 import rateLimiter from './middleware/rateLimit';
 
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(compression());
 app.options('*', cors);
 app.use(rateLimiter);
-app.use('/', apiRouter);
+app.use('/', api);
 
 app.use(errorConverter);
 app.use(errorHandler);
