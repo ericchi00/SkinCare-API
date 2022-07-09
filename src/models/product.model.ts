@@ -8,7 +8,6 @@ import {
 } from 'sequelize-typescript';
 import Brand from './brand.model';
 import Category from './category.model';
-import Ingredient from './ingredients.model';
 
 @Table({ timestamps: false })
 class Product extends Model {
