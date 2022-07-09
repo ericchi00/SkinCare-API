@@ -4,19 +4,20 @@ import {
 	Table,
 	Unique,
 	Model,
-	ForeignKey,
+	DataType,
+	AutoIncrement,
 } from 'sequelize-typescript';
-import Product from './product.model';
 
 @Table({ timestamps: false })
 class Ingredient extends Model {
+	@AutoIncrement
+	@Column
+	id!: number;
+
 	@PrimaryKey
 	@Unique
-	@Column
+	@Column(DataType.TEXT)
 	name!: string;
-
-	@ForeignKey(() => Product)
-	products?: Array<Product>;
 }
 
 export default Ingredient;

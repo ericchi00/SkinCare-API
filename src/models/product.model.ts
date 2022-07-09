@@ -3,9 +3,8 @@ import {
 	Table,
 	Unique,
 	Model,
-	HasOne,
 	ForeignKey,
-	HasMany,
+	DataType,
 } from 'sequelize-typescript';
 import Brand from './brand.model';
 import Category from './category.model';
@@ -18,16 +17,15 @@ class Product extends Model {
 	name!: string;
 
 	@ForeignKey(() => Brand)
-	@HasOne(() => Brand)
+	@Column
 	brand!: string;
 
 	@ForeignKey(() => Category)
-	@HasOne(() => Category)
+	@Column
 	category!: string;
 
-	@ForeignKey(() => Ingredient)
-	@HasMany(() => Ingredient)
-	ingredients!: Array<Ingredient>;
+	@Column(DataType.TEXT)
+	ingredients!: string;
 }
 
 export default Product;
