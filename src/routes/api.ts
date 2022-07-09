@@ -22,74 +22,60 @@ api.get('/brands/:brand', () => {
 	// get products by brand
 });
 
-api.post('/brand', async (req, res, next) => {
-	try {
-		const name = req.query.name?.toString().toLowerCase();
-		const brandQuery = await Brand.findOne({ where: { name: name } });
-		if (brandQuery === null) {
-			Brand.create({ name: name });
-			return res
-				.status(201)
-				.json({ status: 'success', message: 'Brand successfully added.' });
-		} else {
-			return res
-				.status(400)
-				.json({ status: 'ERROR', message: 'Brand already exists' });
-		}
-	} catch (error) {
-		console.log(error);
-		next(error);
-	}
-});
-
-api.post('/category', async (req, res, next) => {
-	try {
-		const name = req.query.name?.toString().toLowerCase();
-		const categoryQuery = await Category.findOne({ where: { name: name } });
-		if (categoryQuery === null) {
-			Category.create({ name });
-			return res
-				.status(201)
-				.json({ status: 'success', message: 'Category successfully added.' });
-		} else {
-			return res
-				.status(400)
-				.json({ status: 'ERROR', message: 'Category already exists' });
-		}
-	} catch (error) {
-		next(error);
-	}
-});
-
-api.post('/ingredient', async (req, res, next) => {
-	try {
-		const name = req.query.name?.toString().toLowerCase();
-		const ingredientQuery = await Ingredient.findOne({ where: { name: name } });
-		if (ingredientQuery === null) {
-			Ingredient.create({ name });
-			return res
-				.status(201)
-				.json({ status: 'success', message: 'Ingredient successfully added.' });
-		} else {
-			return res
-				.status(400)
-				.json({ status: 'ERROR', message: 'Ingredient already exists' });
-		}
-	} catch (error) {
-		next(error);
-	}
-});
-
-// testing product
+// add products to database
 api.post('/product', async (req, res, next) => {
 	try {
-		await Product.create({
-			name: 'Gold Bond Ultimate Eczema',
-			brand: 'gold bond',
-			category: 'lotion',
-			ingredients: ['water', 'glycerin'],
+		const name = req.query.name?.toString().toLowerCase();
+		const brand = req.query.brand?.toString().toLowerCase();
+		const category = req.query.category?.toString().toLowerCase();
+		const ingredients = req.query.ingredients?.toString().toLowerCase();
+		// check if brand exists
+		const checkBrand = await Brand.findOne({ where: { name: brand } });
+		if (checkBrand === null) {
+			await Brand.create({
+				name: brand,
+			});
+		}
+		// check if category exists
+		const checkCategory = await Category.findOne({ where: { name: category } });
+		if (checkCategory === null) {
+			await Category.create({
+				name: category,
+			});
+		}
+		const ingredientsArray = ingredients?.split(', ') || '';
+		// check if ingredients exists
+		for (let i = 0; i < ingredientsArray?.length; i++) {
+			const checkIngredient = await Ingredient.findOne({
+				where: { name: ingredientsArray[i] },
+			});
+			if (checkIngredient === null) {
+				await Ingredient.create({
+					name: ingredientsArray[i],
+				});
+			}
+		}
+		const checkProductName = await Product.findOne({ where: { name: name } });
+		if (checkProductName === null) {
+			await Product.create({
+				name: name,
+				brand: brand,
+				category: category,
+				ingredients: ingredients,
+			});
+			return res.status(200).json({
+				status: 'success',
+				message: 'Product was added to database.',
+			});
+		}
+		return res.status(400).json({
+			status: 'success',
+			message: 'Product was not able to be added.',
 		});
+
+		// %pattern% to find values in ingredients
 	} catch (error) {
+		console.log(error);
 		next(error);
 	}
 });
