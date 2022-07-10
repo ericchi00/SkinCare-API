@@ -6,7 +6,7 @@ API that provides skincare products with ingredients and categories from a self 
 
 Node.js, Express, PostgreSQL, TypeScript
 
-**URL**
+URL
 
 link will go here when hosted
 
@@ -61,7 +61,7 @@ link will go here when hosted
 
 ```json
 {
-	"id": **5,**
+	"id": 5,
 	"name": "pure fit cica cleanser",
 	"brand": "cosrx",
 	"category": "cleanser",
@@ -110,7 +110,7 @@ link will go here when hosted
 		"id": 1,
 		"name": "low ph good morning gel cleanser",
 		"brand": "cosrx",
-		"category": **"cleanser",**
+		"category": "cleanser",
 		"ingredients": [
 			"water",
 			"cocamidopropyl betaine",
@@ -142,7 +142,7 @@ link will go here when hosted
 		"id": 2,
 		"name": "advanced snail mucin gel cleanser",
 		"brand": "cosrx",
-		"category": **"cleanser",**
+		"category": "cleanser",
 		"ingredients": [
 			"water",
 			"acrylates copolymer",
@@ -180,7 +180,7 @@ link will go here when hosted
 	{
 		"id": 9,
 		"name": "ac collection calming foam cleanser",
-		"brand": **"cosrx",**
+		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
 			"water",
@@ -212,7 +212,7 @@ link will go here when hosted
 	{
 		"id": 10,
 		"name": "low ph centella cleansing powder",
-		"brand": **"cosrx",**
+		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
 			"zea mays (corn) starch",
@@ -245,7 +245,7 @@ Searches for products for any amount of ingredients (minimum one) separated by a
 		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
-			**"water",**
+			"water",
 			"cocamidopropyl betaine",
 			"sodium lauroyl methyl isethionate",
 			"polysorbate 20",
@@ -263,7 +263,7 @@ Searches for products for any amount of ingredients (minimum one) separated by a
 			"caprylyl glycol",
 			"ethylhexylglycerin",
 			"betaine salicylate",
-			**"citric acid",**
+			"citric acid",
 			"ethyl hexanediol",
 			"1,2-hexanediol",
 			"trisodium ethylenediamine disuccinate",
@@ -277,7 +277,7 @@ Searches for products for any amount of ingredients (minimum one) separated by a
 		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
-			**"water",**
+			"water",
 			"sodium cocoyl isethionate",
 			"glycerin",
 			"glyceryl stearate",
@@ -288,7 +288,7 @@ Searches for products for any amount of ingredients (minimum one) separated by a
 			"coco-glucoside",
 			"caprylyl glycol",
 			"glyceryl caprylate",
-			**"citric acid",**
+			"citric acid",
 			"eucalyptus globulus leaf oil",
 			"disodium edta",
 			"ocimum basilicum (basil) oil",
@@ -313,7 +313,7 @@ Searches for products for any amount of ingredients (minimum one) separated by a
 		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
-			**"water",**
+			"water",
 			"isopropyl myristate",
 			"methylpropanediol",
 			"polyglyceryl-6 caprylate",
@@ -326,7 +326,7 @@ Searches for products for any amount of ingredients (minimum one) separated by a
 			"cetylpyridinium chloride",
 			"caprylyl glycol",
 			"cocamidopropyl pg-dimonium chloride phosphate",
-			**"citric acid",**
+			"citric acid",
 			"sodium citrate ",
 			"rosmarinus officinalis (rosemary) leaf oil",
 			"centella asiatica leaf extract",
