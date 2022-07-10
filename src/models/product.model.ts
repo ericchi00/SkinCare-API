@@ -23,8 +23,8 @@ class Product extends Model {
 	@Column
 	category!: string;
 
-	@Column(DataType.TEXT)
-	ingredients!: string;
+	@Column(DataType.ARRAY(DataType.STRING))
+	ingredients!: string[];
 }
 
 export default Product;
