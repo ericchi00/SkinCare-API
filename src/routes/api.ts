@@ -7,10 +7,6 @@ import {
 	getProductsByIngredients,
 	postProductByParams,
 } from '../controller/apicontroller';
-import Brand from '../models/brand.model';
-import Category from '../models/category.model';
-import Ingredient from '../models/ingredients.model';
-import Product from '../models/product.model';
 
 const api = Router();
 
