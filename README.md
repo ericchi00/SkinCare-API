@@ -61,35 +61,39 @@ link will go here when hosted
 
 ```json
 {
-	"id": 1,
-	"name": "low ph good morning gel cleanser",
+	"id": **5,**
+	"name": "pure fit cica cleanser",
 	"brand": "cosrx",
 	"category": "cleanser",
 	"ingredients": [
 		"water",
-		"cocamidopropyl betaine",
-		"sodium lauroyl methyl isethionate",
-		"polysorbate 20",
-		"styrax japonicus branch/fruit/leaf extract",
-		"butylene glycol",
-		"saccharomyces ferment",
-		"cryptomeria japonica leaf extract",
-		"nelumbo nucifera leaf extract",
-		"pinus palustris leaf extract",
-		"ulmus davidiana root extract",
-		"oenothera biennis (evening primrose) flower extract",
-		"pueraria lobata root extract",
-		"melaleuca alternifolia (tea tree) leaf oil",
-		"allantoin",
+		"sodium cocoyl isethionate",
+		"glycerin",
+		"glyceryl stearate",
+		"stearyl alcohol",
+		"coco-betaine",
+		"sodium methyl cocoyl taurate",
+		"sodium chloride",
+		"coco-glucoside",
 		"caprylyl glycol",
-		"ethylhexylglycerin",
-		"betaine salicylate",
+		"glyceryl caprylate",
 		"citric acid",
-		"ethyl hexanediol",
+		"eucalyptus globulus leaf oil",
+		"disodium edta",
+		"ocimum basilicum (basil) oil",
 		"1,2-hexanediol",
-		"trisodium ethylenediamine disuccinate",
-		"sodium benzoate",
-		"disodium edta"
+		"quillaja saponaria bark extract",
+		"propanediol",
+		"centella asiatica extract",
+		"centella asiatica leaf extract",
+		"centella asiatica root extract",
+		"saccharomyces ferment",
+		"ethylhexylglycerin",
+		"asiatic acid",
+		"asiaticoside",
+		"madecassic acid",
+		"madecassoside",
+		"pinus pinaster bark extract"
 	]
 }
 ```
@@ -106,7 +110,7 @@ link will go here when hosted
 		"id": 1,
 		"name": "low ph good morning gel cleanser",
 		"brand": "cosrx",
-		"category": "cleanser",
+		"category": **"cleanser",**
 		"ingredients": [
 			"water",
 			"cocamidopropyl betaine",
@@ -138,7 +142,7 @@ link will go here when hosted
 		"id": 2,
 		"name": "advanced snail mucin gel cleanser",
 		"brand": "cosrx",
-		"category": "cleanser",
+		"category": **"cleanser",**
 		"ingredients": [
 			"water",
 			"acrylates copolymer",
@@ -176,7 +180,7 @@ link will go here when hosted
 	{
 		"id": 9,
 		"name": "ac collection calming foam cleanser",
-		"brand": "cosrx",
+		"brand": **"cosrx",**
 		"category": "cleanser",
 		"ingredients": [
 			"water",
@@ -208,7 +212,7 @@ link will go here when hosted
 	{
 		"id": 10,
 		"name": "low ph centella cleansing powder",
-		"brand": "cosrx",
+		"brand": **"cosrx",**
 		"category": "cleanser",
 		"ingredients": [
 			"zea mays (corn) starch",
@@ -221,37 +225,6 @@ link will go here when hosted
 			"lipase",
 			"protease"
 		]
-	},
-	{
-		"id": 11,
-		"name": "hydrium triple hyaluronic moisturizing cleanser",
-		"brand": "cosrx",
-		"category": "cleanser",
-		"ingredients": [
-			"water",
-			"glycerin",
-			"stearic acid",
-			"myristic acid",
-			"lauric acid",
-			"potassium hydroxide,palmitic acid",
-			"potassiumcocoylglycinate",
-			"coco-glucoside",
-			"glyceryl stearate,fragrance(parfum)",
-			"polyquaternium-7",
-			"acrylates/c10-30 alkyl acrylatecrosspolymer",
-			"sodiumcocoylisethionate",
-			"arachidic acid",
-			"disodium edta",
-			"1,2-hexanediol",
-			"oleic acid",
-			"sodium benzoate,quillajasaponaria bark extract",
-			"citricacid",
-			"butylene glycol",
-			"panthenol",
-			"hyaluronic acid,ethylhexylglycerin",
-			"hydrolyzedhyaluronic acid",
-			"sodium hyaluronate"
-		]
 	}
 ]
 ```
@@ -260,7 +233,7 @@ link will go here when hosted
 
 ### `GET /ingredients?ingredients=water, citric acid`
 
-Searches for products for any amount of ingredients
+Searches for products for any amount of ingredients (minimum one) separated by a comma (,)
 
 ### Response
 
@@ -272,7 +245,7 @@ Searches for products for any amount of ingredients
 		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
-			"water",
+			**"water",**
 			"cocamidopropyl betaine",
 			"sodium lauroyl methyl isethionate",
 			"polysorbate 20",
@@ -290,7 +263,7 @@ Searches for products for any amount of ingredients
 			"caprylyl glycol",
 			"ethylhexylglycerin",
 			"betaine salicylate",
-			"citric acid",
+			**"citric acid",**
 			"ethyl hexanediol",
 			"1,2-hexanediol",
 			"trisodium ethylenediamine disuccinate",
@@ -304,7 +277,7 @@ Searches for products for any amount of ingredients
 		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
-			"water",
+			**"water",**
 			"sodium cocoyl isethionate",
 			"glycerin",
 			"glyceryl stearate",
@@ -315,7 +288,7 @@ Searches for products for any amount of ingredients
 			"coco-glucoside",
 			"caprylyl glycol",
 			"glyceryl caprylate",
-			"citric acid",
+			**"citric acid",**
 			"eucalyptus globulus leaf oil",
 			"disodium edta",
 			"ocimum basilicum (basil) oil",
@@ -340,7 +313,7 @@ Searches for products for any amount of ingredients
 		"brand": "cosrx",
 		"category": "cleanser",
 		"ingredients": [
-			"water",
+			**"water",**
 			"isopropyl myristate",
 			"methylpropanediol",
 			"polyglyceryl-6 caprylate",
@@ -353,7 +326,7 @@ Searches for products for any amount of ingredients
 			"cetylpyridinium chloride",
 			"caprylyl glycol",
 			"cocamidopropyl pg-dimonium chloride phosphate",
-			"citric acid",
+			**"citric acid",**
 			"sodium citrate ",
 			"rosmarinus officinalis (rosemary) leaf oil",
 			"centella asiatica leaf extract",
