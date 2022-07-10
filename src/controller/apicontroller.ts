@@ -21,6 +21,11 @@ const getProductByID = async (
 ) => {
 	try {
 		const product = await Product.findOne({ where: { id: req.params.id } });
+		if (product === null) {
+			return res
+				.status(400)
+				.json({ status: 'ERROR', message: 'Product ID does not exist' });
+		}
 		return res.status(200).json(product);
 	} catch (error) {
 		next(error);
@@ -33,6 +38,16 @@ const getProductsByCategory = async (
 	next: NextFunction
 ) => {
 	try {
+		const category = await Category.findOne({
+			where: {
+				name: req.params.category,
+			},
+		});
+		if (category === null) {
+			return res
+				.status(400)
+				.json({ status: 'ERROR', message: 'Category does not exist' });
+		}
 		const products = await Product.findAll({
 			where: {
 				category: req.params.category,
@@ -50,6 +65,14 @@ const getProductsByBrand = async (
 	next: NextFunction
 ) => {
 	try {
+		const brand = await Brand.findOne({
+			where: { name: req.params.brand },
+		});
+		if (brand === null) {
+			return res
+				.status(400)
+				.json({ status: 'ERROR', message: 'Brand does not exist' });
+		}
 		const products = await Product.findAll({
 			where: {
 				brand: req.params.brand,
