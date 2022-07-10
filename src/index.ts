@@ -5,7 +5,6 @@ import app from './app';
 const port = process.env.PORT || 8000;
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const sequelize = new Sequelize(process.env.DATABASE_URL!, {
 	dialectOptions: {
 		ssl: {
@@ -33,3 +32,4 @@ app.listen(port, () => {
 });
 
 export default sequelize;
+export { main };
