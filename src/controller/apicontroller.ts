@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { Op, Sequelize } from 'sequelize';
+import { Op } from 'sequelize';
 import Brand from '../models/brand.model';
 import Category from '../models/category.model';
 import Ingredient from '../models/ingredients.model';
@@ -32,6 +32,42 @@ const getProductByID = async (
 	}
 };
 
+const getProductByName = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	try {
+		const { name } = req.params;
+		const product = await Product.findAll({
+			where: {
+				name: { [Op.substring]: name },
+			},
+		});
+		if (product.length === 0) {
+			return res
+				.status(400)
+				.json({ status: 'ERROR', message: 'No product found with that name.' });
+		}
+		return res.status(200).json(product);
+	} catch (error) {
+		next(error);
+	}
+};
+
+const getAllCategories = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	try {
+		const categories = await Category.findAll();
+		return res.status(200).json(categories);
+	} catch (error) {
+		next(error);
+	}
+};
+
 const getProductsByCategory = async (
 	req: Request,
 	res: Response,
@@ -54,6 +90,19 @@ const getProductsByCategory = async (
 			},
 		});
 		return res.status(200).json(products);
+	} catch (error) {
+		next(error);
+	}
+};
+
+const getAllBrands = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	try {
+		const brands = await Brand.findAll();
+		return res.status(200).json(brands);
 	} catch (error) {
 		next(error);
 	}
@@ -84,21 +133,54 @@ const getProductsByBrand = async (
 	}
 };
 
+const getAllIngredients = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	try {
+		const ingredients = await Ingredient.findAll();
+		return res.status(200).json(ingredients);
+	} catch (error) {
+		next(error);
+	}
+};
+
+const getIngredient = async (
+	req: Request,
+	res: Response,
+	next: NextFunction
+) => {
+	try {
+		const { q } = req.query;
+		const ingredient = await Ingredient.findAll({
+			where: {
+				name: {
+					[Op.substring]: q,
+				},
+			},
+		});
+		if (ingredient.length === 0) {
+			return res
+				.status(400)
+				.json({ status: 'ERROR', messasge: 'No ingredients found.' });
+		}
+		return res.status(200).json(ingredient);
+	} catch (error) {
+		next(error);
+	}
+};
+
 const getProductsByIngredients = async (
 	req: Request,
 	res: Response,
 	next: NextFunction
 ) => {
 	try {
-		const ingredients = req.query.ingredients
+		const ingredients = req.params.ingredients
 			?.toString()
 			.toLowerCase()
 			.split(', ');
-		if (ingredients === undefined) {
-			return res
-				.status(400)
-				.json({ status: 'ERROR', message: 'Query is empty or is invalid' });
-		}
 		const products = await Product.findAll({
 			where: {
 				ingredients: {
@@ -181,8 +263,13 @@ const postProductByParams = async (
 export {
 	getProducts,
 	getProductByID,
+	getProductByName,
 	getProductsByCategory,
 	getProductsByBrand,
+	getAllIngredients,
 	getProductsByIngredients,
 	postProductByParams,
+	getIngredient,
+	getAllCategories,
+	getAllBrands,
 };
