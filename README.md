@@ -6,7 +6,17 @@ API that provides skincare products with ingredients and categories from a self 
 
 Node.js, Express, PostgreSQL, TypeScript
 
-URL
+### TO DO
+
+get product by product name
+
+get list of all ingredients
+
+get list of all brands
+
+get list of all categories
+
+### URL
 
 link will go here when hosted
 
