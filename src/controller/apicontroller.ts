@@ -76,7 +76,7 @@ const getProductsByCategory = async (
 	try {
 		const category = await Category.findOne({
 			where: {
-				name: req.params.category,
+				name: { [Op.substring]: req.params.category },
 			},
 		});
 		if (category === null) {
@@ -86,7 +86,7 @@ const getProductsByCategory = async (
 		}
 		const products = await Product.findAll({
 			where: {
-				category: req.params.category,
+				category: { [Op.substring]: req.params.category },
 			},
 		});
 		return res.status(200).json(products);
@@ -115,7 +115,7 @@ const getProductsByBrand = async (
 ) => {
 	try {
 		const brand = await Brand.findOne({
-			where: { name: req.params.brand },
+			where: { name: { [Op.substring]: req.params.brand } },
 		});
 		if (brand === null) {
 			return res
@@ -124,7 +124,7 @@ const getProductsByBrand = async (
 		}
 		const products = await Product.findAll({
 			where: {
-				brand: req.params.brand,
+				brand: { [Op.substring]: req.params.brand },
 			},
 		});
 		return res.status(200).json(products);
@@ -214,6 +214,17 @@ const postProductByParams = async (
 			.toLowerCase()
 			.trim()
 			.split(', ');
+		if (
+			name === '' ||
+			brand === '' ||
+			category === '' ||
+			ingredients![0] === ''
+		) {
+			return res.status(400).json({
+				status: 'ERROR',
+				message: 'Params are not filled out properly',
+			});
+		}
 		// check if brand exists
 		const checkBrand = await Brand.findOne({ where: { name: brand } });
 		if (checkBrand === null) {
