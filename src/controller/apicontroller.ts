@@ -212,6 +212,7 @@ const postProductByParams = async (
 		const ingredients = req.query.ingredients
 			?.toString()
 			.toLowerCase()
+			.trim()
 			.split(', ');
 		// check if brand exists
 		const checkBrand = await Brand.findOne({ where: { name: brand } });
@@ -237,7 +238,9 @@ const postProductByParams = async (
 				});
 			}
 		}
-		const checkProductName = await Product.findOne({ where: { name: name } });
+		const checkProductName = await Product.findOne({
+			where: { name: name, brand: brand },
+		});
 		if (checkProductName === null) {
 			await Product.create({
 				name: name,
@@ -255,7 +258,6 @@ const postProductByParams = async (
 			message: 'Product was not able to be added.',
 		});
 	} catch (error) {
-		console.log(error);
 		next(error);
 	}
 };
