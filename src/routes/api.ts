@@ -35,6 +35,6 @@ api.get('/brands', getAllBrands);
 
 api.get('/brands/:brand', getProductsByBrand);
 
-api.post('/products', postProductByParams);
+api.post('/product', postProductByParams);
 
 export default api;
