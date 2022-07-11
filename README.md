@@ -326,7 +326,7 @@ Example
 
 ## Get all Categories
 
-### `GET /categories/`
+### `GET /categories`
 
 ### Response
 
