@@ -6,9 +6,10 @@
 	"engines": {
 		"node": "16.13.2"
 	},
+	"main": "index.js",
 	"scripts": {
-		"build": "tsc --project ./",
-		"start": "node build/index.js",
+		"build": "tsc",
+		"start": "node .",
 		"serve": "nodemon src/index.ts",
 		"test": "jest --coverage",
 		"test:watch": "jest --watch"
