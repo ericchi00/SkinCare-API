@@ -8,7 +8,7 @@ Node.js, Express, PostgreSQL, TypeScript
 
 ### URL
 
-link will go here when hosted
+https://apiskincare.herokuapp.com/
 
 ## Get all Products
 
