@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "tsc --project ./",
+		"run": "nodemon build/index.js",
 		"serve": "nodemon src/index.ts",
 		"test": "jest --coverage",
 		"test:watch": "jest --watch"
