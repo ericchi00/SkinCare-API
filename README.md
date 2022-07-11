@@ -59,7 +59,7 @@ link will go here when hosted
 
 Example
 
-### `GET /products/5`
+#### `GET /products/5`
 
 ### Response
 
@@ -108,7 +108,7 @@ Example
 
 Example
 
-### `GET/products/name/sleeping mask`
+#### `GET /products/name/sleeping mask`
 
 ### Response
 
@@ -193,7 +193,7 @@ Example
 
 Example
 
-### `GET /products/ingredients/water, hydrogenated vegetable oil`
+#### `GET /products/ingredients/water, hydrogenated vegetable oil`
 
 Ingredients must be separated by a comma and at least one must be put in. The ingredient must be have exact spelling. It's recommend to search the database for the ingredient first to see if it exists.
 
@@ -299,7 +299,7 @@ Ingredients must be separated by a comma and at least one must be put in. The in
 
 Example
 
-### `GET /ingredient?q=poly`
+#### `GET /ingredient?q=poly`
 
 ### Response
 
@@ -357,7 +357,7 @@ Example
 
 Example
 
-### `GET/categories/cream`
+#### `GET/categories/cream`
 
 ### Response
 
@@ -470,7 +470,7 @@ Example
 
 Example
 
-### `GET /brands/cera`
+#### `GET /brands/cera`
 
 ### Response
 
@@ -517,7 +517,7 @@ Example
 
 Example
 
-### `/product?name=CERAMIDI LIQUID MOISTURIZING TONER&brand=dr.jart+&ingredients=Water, Dipropylene Glycol, Alcohol, Betaine, Propanediol, Glycosyl Trehalose, 1,2-Hexanediol, Erythritol, Pentylene Glycol, Glycerin, Hydrogenated Starch Hydrolysate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Triethylhexanoin, Diphenyl Dimethicone, Triethylhexanoin, Panthenol, Butylene Glycol, Hydrogenated Lecithin, Centella Asiatica Extract, Icus Carica (Fig) Fruit Extract, Melia Azadirachta Leaf Extract, Theobroma Cacao (Cocoa) Seed Extract, Amaranthus Caudatus Seed Extract, Ulmus Davidiana Root Extract, Curcuma Longa (Turmeric) Root Extract, Ocimum Sanctum Leaf Extract, Corallina Officinalis Extract, Pyracantha Fortuneana Fruit Extract, Carbomer, Cellulose Gum, Sucrose Distearate, Dipotassium Glycyrrhizate, Ethylhexylglycerin, Methylpropanediol, Disodium Edta, Glyceryl Polymethacrylate, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, C12-14 Pareth-12, Polyglyceryl-10 Myristate, Pelargonium Graveolens Flower Oil, Dextrin, Glyceryl Stearate, Sodium Hyaluronate, Salvia Officinalis (Sage) Oil, Pogostemon Cablin Oil, Cholesterol, Ceramide EOP, Ceramide AP, Ceramide AS, Ceramide NS&category=toner`
+#### `POST /product?name=CERAMIDI LIQUID MOISTURIZING TONER&brand=dr.jart+&ingredients=Water, Dipropylene Glycol, Alcohol, Betaine, Propanediol, Glycosyl Trehalose, 1,2-Hexanediol, Erythritol, Pentylene Glycol, Glycerin, Hydrogenated Starch Hydrolysate, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Triethylhexanoin, Diphenyl Dimethicone, Triethylhexanoin, Panthenol, Butylene Glycol, Hydrogenated Lecithin, Centella Asiatica Extract, Icus Carica (Fig) Fruit Extract, Melia Azadirachta Leaf Extract, Theobroma Cacao (Cocoa) Seed Extract, Amaranthus Caudatus Seed Extract, Ulmus Davidiana Root Extract, Curcuma Longa (Turmeric) Root Extract, Ocimum Sanctum Leaf Extract, Corallina Officinalis Extract, Pyracantha Fortuneana Fruit Extract, Carbomer, Cellulose Gum, Sucrose Distearate, Dipotassium Glycyrrhizate, Ethylhexylglycerin, Methylpropanediol, Disodium Edta, Glyceryl Polymethacrylate, Citrus Aurantium Bergamia (Bergamot) Fruit Oil, C12-14 Pareth-12, Polyglyceryl-10 Myristate, Pelargonium Graveolens Flower Oil, Dextrin, Glyceryl Stearate, Sodium Hyaluronate, Salvia Officinalis (Sage) Oil, Pogostemon Cablin Oil, Cholesterol, Ceramide EOP, Ceramide AP, Ceramide AS, Ceramide NS&category=toner`
 
 Order does not matter when posting. You will get 400 status code if the product is not able to be added.
 
