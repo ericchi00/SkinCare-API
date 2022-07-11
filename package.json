@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"build": "tsc --project ./",
-		"start": "node index.js",
+		"start": "node build/index.js",
 		"serve": "nodemon src/index.ts",
 		"test": "jest --coverage",
 		"test:watch": "jest --watch"
